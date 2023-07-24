@@ -53,7 +53,8 @@ function App() {
 					<div className='flex flex-col mt-3 px-10 h-[500px]'>
 
 						{slide[currentIndex]}
-						<div className='relative flex justify-center items-center mt-1'>
+						<div className='mt-1 fixed left-0 bottom-0
+            flex justify-center items-center w-full mb-3'>
 							{slideBtn[currentIndex]}
 						</div>
 					</div>
