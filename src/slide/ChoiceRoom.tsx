@@ -32,7 +32,6 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 			.then((response) => response.json())
 	);
 	const applyFilters = () => {
-		console.log(data);
 
 		if (!data || !Array.isArray(data)) {
 			// Handle the case when data is not available or not an array
@@ -44,7 +43,6 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 			(search.trim() === "" ||
 				item.name.toLowerCase().includes(search.toLowerCase()))
 		);
-		console.log(filteredData);
 
 		return filteredData;
 	};
@@ -93,12 +91,6 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 					))}
 				</div>
 
-				<div className="flex flex-row mx-auto items-center justify-center mt-2">
-					<button className="btn  group px-12 normal-case mx-5 " onClick={prev}>
-						<span className=" inline">이전</span>
-					</button>
-
-				</div>
 			</div >
 			{/* You can open the modal using ID.showModal() method */}
 			< dialog id="my_modal" className="modal" >

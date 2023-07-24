@@ -18,7 +18,7 @@ const Intro = ({ next }: IntroProp) => {
 	}, []);
 
 	return (
-		<div className='flex flex-col sm:flex-row max-w-screen-lg mx-auto'>
+		<div className='flex flex-col  max-w-screen-lg mx-auto h-[700px]'>
 			<div className="w-52 px-5 max-w-md mx-auto">
 				<img src='/icon/city.svg' className='w-full items-center justify-center  ' />
 			</div>
@@ -32,7 +32,6 @@ const Intro = ({ next }: IntroProp) => {
 					<Card_mini img="edu" des="교육"></Card_mini>
 				</div>
 
-				<button className='btn btn-neutral' onClick={next}>시작하기</button>
 			</div>
 		</div>
 
