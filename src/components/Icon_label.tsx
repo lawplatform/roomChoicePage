@@ -13,7 +13,7 @@ const Icon_label = ({ name, icon, handleChange, checked }: Icon_labelprops) => {
 				<div className="flex flex-row items-center">
 					<span className="label-text text-sm text-center">{name}</span>
 					<input type="checkbox" value={icon}
-						checked={checked} onChange={handleChange} className="ml-1 checkbox w-3 h-3" />
+						defaultChecked={checked} onChange={handleChange} className="ml-1 checkbox w-3 h-3" />
 
 				</div>
 			</div>
