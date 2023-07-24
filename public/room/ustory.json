@@ -1,0 +1,29 @@
+[
+	{
+		"name":"arcademy",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["edu"]
+	},
+	
+	{
+		"name":"garden",
+		"desc":"정원을 탐색하세요",
+		"link":"https://youstory.io/conssul-island",
+		"category":["home"]
+	},
+	
+	{
+		"name":"office",
+		"desc":"이야기를 나누세요",
+		"link":"https://youstory.io/lawoffice",
+		"category":["talk"]
+	},
+		{
+		"name":"showroom",
+		"desc":"시설을 홍보하세요",
+		"link":"https://youstory.io/conssul-expocenter",
+		"category":["sns"]
+	}
+
+]

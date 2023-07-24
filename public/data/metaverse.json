@@ -1,0 +1,23 @@
+[
+	{
+		"name":"zep",
+		"desc":"zep 소개",
+		"link":"link url",
+		"room":"방",
+		"room_desc":"작은방"
+	},
+		{
+		"name":"zepeto",
+		"desc":"zepeto 소개",
+		"link":"link url",
+		"room":"사무실",
+		"room_desc":"기본 사무실"
+	},
+		{
+		"name":"ustory",
+		"link":"link url",	
+		"desc":"ustory 소개 ",
+		"room":"갤러리",
+		"room_desc":"기본 갤러리"
+	}
+]
