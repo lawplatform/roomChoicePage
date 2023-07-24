@@ -2,7 +2,13 @@ import { useState } from "react";
 import Card_Radio from "../components/Card_Radio";
 import { useQuery } from "@tanstack/react-query";
 
-const ChoiceMetaverse = () => {
+
+interface WarnProp {
+	next: () => void;
+	prev: () => void;
+}
+
+const ChoiceMetaverse = ({ next, prev }: WarnProp) => {
 	const [metaverse, SetMetaverse] = useState('ustory')
 	const { data, isLoading, error } = useQuery(['jsonData', { filter: { metaverse } }], () =>
 		fetch('/data/metaverse.json')
@@ -18,7 +24,7 @@ const ChoiceMetaverse = () => {
 	if (!data) {
 		return <div>Item not found!</div>;
 	}
-	const imagePath = `/logo/${data.name}.png`;
+	const imagePath = `/example/${data.name}.png`;
 
 
 	return (
@@ -33,7 +39,7 @@ const ChoiceMetaverse = () => {
 				</div>
 				<p className="py-6 mx-auto text-center">
 					{data.desc}</p>
-				<div className="flex flex-row my-5 bg-red-100">
+				<div className="flex flex-row my-5 ">
 					<div className="flex flex-col w-28">
 						<img src={imagePath} className="rounded-lg w-32 ml-3" />
 						<div className="flex flex-row h-5 pl-5 mt-2">
@@ -49,10 +55,10 @@ const ChoiceMetaverse = () => {
 					</div>
 				</div>
 				<div className="flex flex-row mx-auto">
-					<button className="btn  group px-12 normal-case mx-5">
+					<button className="btn  group px-12 normal-case mx-5" onClick={prev}>
 						<span className="hidden sm:inline">이전</span>
 					</button>
-					<button className="btn btn-neutral group px-12 normal-case">다음
+					<button className="btn btn-neutral group px-12 normal-case" onClick={next}>다음
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="hidden h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 md:inline-block">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
 						</svg></button>

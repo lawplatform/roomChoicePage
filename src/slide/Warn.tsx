@@ -7,7 +7,7 @@ const Warn = ({ next, prev }: WarnProp) => {
 	return (
 		<div className='flex flex-col sm:flex-row'>
 			<div className="w-52 px-5 max-w-md mx-auto">
-				<img src='/icon/info.svg' className='w-full items-center justify-center bg-blue-100 ' />
+				<img src='/icon/info.svg' className='w-full items-center justify-center  ' />
 			</div>
 			<div className='mx-10 flex flex-col max-w-md'>
 				<h1 className=' leading-10 text-3xl font-bold text-center'>주의! </h1>
@@ -18,12 +18,12 @@ const Warn = ({ next, prev }: WarnProp) => {
 					<ShowCard img="stop" des="메타버스마다 지원되는 기능이 차이가 있습니다"></ShowCard>
 				</div>
 				<div className="flex flex-row mx-auto">
-					<a className="btn  group px-12 normal-case">
-						<span className="inline sm:hidden">뒤로</span></a>
-					<a className="btn btn-neutral group px-12 normal-case">다음
+					<button className="btn  group px-12 normal-case" onClick={prev}>
+						<span>뒤로</span></button>
+					<button className="btn btn-neutral group px-12 normal-case mx-2" onClick={next}>다음
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="hidden h-6 w-6 transition-transform duration-300 group-hover:translate-x-1 md:inline-block">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
-						</svg></a>
+						</svg></button>
 				</div>
 			</div>
 		</div>

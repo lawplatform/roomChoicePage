@@ -9,7 +9,7 @@ const Card_Radio = ({ name, meta, setMeta }: Card_RadioProps) => {
 		setMeta(name);
 	};
 	return (
-		<div className="flex flex-row  sm:flex-col-reverse  items-center card  my-2 mx-1 sm:mx-1 py-1 pb-3  sm:h-30 w-72 sm:w-96 bg-base-300" onClick={handleClick}>
+		<div className="flex flex-row  sm:flex-col-reverse  items-center card  my-2 mx-1 sm:mx-1 py-1 pb-3  sm:h-30 w-72 sm:w-96 border-2 border-black-200 rounded-lg" onClick={handleClick}>
 			<div className=" overflow-hidden mx-2 flex items-center">
 				<input type="radio" value={name} className="radio w-4 h-4 " checked={meta == name} />
 			</div>

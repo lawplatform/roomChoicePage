@@ -21,7 +21,7 @@ const Intro = ({ next }: IntroProp) => {
 					<ShowCard img="edu" des="교육"></ShowCard>
 				</div>
 
-				<button className='btn btn-neutral' onClick={next}>start</button>
+				<button className='btn btn-neutral' onClick={next}>시작하기</button>
 			</div>
 		</div>
 

@@ -5,10 +5,12 @@ import Icon_label from "../components/Icon_label";
 import { useQuery } from "@tanstack/react-query";
 
 interface ChoiceRoomProp {
-	metaverse: string;
+	platform: string;
+	next: () => void;
+	prev: () => void;
 }
 
-const ChoiceRoom = () => {
+const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 	const metaverse = "ustory"
 	const imagePath = "/room/" + metaverse + "/"
 	const [filterOptions, setFilterOptions] = useState(["sns", "home", "talk", "edu"]);
@@ -30,15 +32,17 @@ const ChoiceRoom = () => {
 			.then((response) => response.json())
 	);
 	const applyFilters = () => {
-		// Filter the data using the selected filterOptions
+		console.log(data);
+
+		if (!data || !Array.isArray(data)) {
+			// Handle the case when data is not available or not an array
+			return [];
+		}
 		const filteredData = data.filter((item: any) =>
 			item.category.some((cat: string) => filterOptions.includes(cat))
 			&&
 			(search.trim() === "" ||
 				item.name.toLowerCase().includes(search.toLowerCase()))
-
-
-
 		);
 		console.log(filteredData);
 
@@ -70,6 +74,7 @@ const ChoiceRoom = () => {
 
 	return (
 		<>
+			<h1 className='text-center leading-10 text-3xl font-bold'>공간 선택 </h1>
 			<div className="form-control flex flex-row justify-center">
 				<Icon_label icon="home" name="모임" handleChange={handleCheckboxChange} checked={filterOptions.includes("home")} />
 				<Icon_label icon="edu" name="교육" handleChange={handleCheckboxChange} checked={filterOptions.includes("edu")} />
@@ -77,7 +82,7 @@ const ChoiceRoom = () => {
 				<Icon_label icon="talk" name="상담" handleChange={handleCheckboxChange} checked={filterOptions.includes("talk")} />
 			</div>
 
-			<div className="mx-auto flex justify-center bg-green-100">
+			<div className="mx-auto flex justify-center w-80 mt-3">
 				<Searchbar search={search} setSearch={setSearch} />
 
 			</div>
@@ -89,9 +94,9 @@ const ChoiceRoom = () => {
 				</div>
 
 				<div className="flex flex-row mx-auto items-center justify-center mt-2">
-					<a className="btn  group px-12 normal-case mx-5">
+					<button className="btn  group px-12 normal-case mx-5 " onClick={prev}>
 						<span className=" inline">이전</span>
-					</a>
+					</button>
 
 				</div>
 			</div >
