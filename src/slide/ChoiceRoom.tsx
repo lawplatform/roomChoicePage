@@ -80,11 +80,11 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 				<Icon_label icon="talk" name="상담" handleChange={handleCheckboxChange} checked={filterOptions.includes("talk")} />
 			</div>
 
-			<div className="mx-auto flex justify-center w-80 mt-3">
+			<div className="mx-auto flex justify-center w-80 mt-3 mb-3">
 				<Searchbar search={search} setSearch={setSearch} />
 
 			</div>
-			<div>
+			<div className=" h-[650px] overflow-y-scroll">
 				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-5 ">
 					{filteredData.map((item: any) => (
 						<Gallery_Button name={item.name} img={imagePath + 'conssul-' + item.name + '.png'} show={showModal} />

@@ -1,55 +1,214 @@
 [
 	{
-		"name":"arcademy",
+		"name":"atlashall",
 		"desc":"강의를 듣고 공유하세요",
 		"link":"https://youstory.io/academy",
-		"category":["edu"]
-	},
-	
-	{
-		"name":"garden",
-		"desc":"정원을 탐색하세요",
-		"link":"https://youstory.io/conssul-island",
-		"category":["home"]
-	},
-	
-	{
-		"name":"office",
-		"desc":"이야기를 나누세요",
-		"link":"https://youstory.io/lawoffice",
-		"category":["talk"]
-	},
-		{
-		"name":"showroom",
-		"desc":"시설을 홍보하세요",
-		"link":"https://youstory.io/conssul-expocenter",
-		"category":["sns"]
+		"category":["edu","home"],
+		"rank":"enterprise"
 	},
 	{
-		"name":"arcademy",
+		"name":"aeropolis",
 		"desc":"강의를 듣고 공유하세요",
 		"link":"https://youstory.io/academy",
-		"category":["edu"]
-	},
-	
-	{
-		"name":"garden",
-		"desc":"정원을 탐색하세요",
-		"link":"https://youstory.io/conssul-island",
-		"category":["home"]
-	},
-	
-	{
-		"name":"office",
-		"desc":"이야기를 나누세요",
-		"link":"https://youstory.io/lawoffice",
-		"category":["talk"]
+		"category":["sns","home"],
+		"rank":"enterprise"
 	},
 		{
-		"name":"showroom",
-		"desc":"시설을 홍보하세요",
-		"link":"https://youstory.io/conssul-expocenter",
-		"category":["sns"]
+		"name":"atrium",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["sns","home"],
+		"rank":"enterprise"
+	},
+		{
+		"name":"auditorium",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["edu","sns"],
+		"rank":"enterprise"
+	},
+			{
+		"name":"campus",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["edu","home","sns"],
+		"rank":"enterprise"
+	},
+			{
+		"name":"conventioncenter",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["talk"],
+		"rank":"enterprise"
+	},
+			{
+		"name":"eventhorizon",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["sns","talk"],
+		"rank":"enterprise"
+	}
+	,
+			{
+		"name":"expocenter",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["sns","home"],
+		"rank":"enterprise"
+	},
+			{
+		"name":"floatinghall",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["edu"],
+		"rank":"enterprise"
+	},
+			{
+		"name":"gallery-large",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["sns"],
+		"rank":"enterprise"
+	},	{
+		"name":"gallery-small",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["sns"],
+		"rank":"enterprise"
+	},	{
+		"name":"island",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["home","talk"],
+		"rank":"enterprise"
+	}
+	,	{
+		"name":"lounge",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["talk"],
+		"rank":"enterprise"
+	}
+	,	{
+		"name":"market",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["sns"],
+		"rank":"enterprise"
+	}
+	,	{
+		"name":"marketday",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["edu"],
+		"rank":"enterprise"
+	},	{
+		"name":"midcentury",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["talk"],
+		"rank":"enterprise"
+	},	{
+		"name":"moderngallery",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["edu","sns"],
+		"rank":"enterprise"
+	},	{
+		"name":"moreyhall",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["home","talk"],
+		"rank":"enterprise"
+	},	{
+		"name":"neonhall",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["sns"],
+		"rank":"enterprise"
+	},	{
+		"name":"norfolkcloister",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["home"],
+		"rank":"enterprise"
+	},
+	{
+		"name":"operetta",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["home","talk"],
+		"rank":"enterprise"
+	},
+	{
+		"name":"outdoortheater",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["edu"],
+		"rank":"enterprise"
+	},
+		{
+		"name":"outdoortheater2",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["home"],
+		"rank":"enterprise"
+	},
+		{
+		"name":"resort",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["edu"],
+		"rank":"enterprise"
+	},
+		{
+		"name":"school",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["edu","home"],
+		"rank":"enterprise"
+	},
+		{
+		"name":"serenitygarden",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["home","talk"],
+		"rank":"enterprise"
+	},
+		{
+		"name":"shop",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["sns"],
+		"rank":"enterprise"
+	},
+		{
+		"name":"solarium",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["home","edu"],
+		"rank":"enterprise"
+	},
+		{
+		"name":"supportcenter",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["home"],
+		"rank":"enterprise"
+	},
+		{
+		"name":"zenoffice2",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["talk"],
+		"rank":"enterprise"
+	},
+		{
+		"name":"zenoffice3",
+		"desc":"강의를 듣고 공유하세요",
+		"link":"https://youstory.io/academy",
+		"category":["talk"],
+		"rank":"enterprise"
 	}
 
 
