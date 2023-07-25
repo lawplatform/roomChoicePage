@@ -7,7 +7,7 @@ const Gallery_Button = ({ name, img, show }: Gallery_ButtonProps) => {
 	return (
 		<div>
 			<button onClick={() => show(name)}>
-				<img className="h-auto max-w-full rounded-lg" src={img} alt="" />
+				<img className="h-40 max-w-full rounded-lg" src={img} alt="" />
 				<div className=" flex px-5 py-2 bg-black  text-white relative bottom-3">{name}</div>
 			</button>
 		</div>

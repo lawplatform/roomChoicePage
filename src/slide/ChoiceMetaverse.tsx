@@ -28,7 +28,7 @@ const ChoiceMetaverse = ({ next, prev }: WarnProp) => {
 
 
 	return (
-		<div className='flex flex-col  justify-center sm:flex-row'>
+		<div className='flex flex-col  justify-center sm:flex-row '>
 
 			<div className='flex flex-col max-w-lg'>
 				<h1 className='text-center leading-10 text-3xl font-bold'>메타버스 선택 </h1>

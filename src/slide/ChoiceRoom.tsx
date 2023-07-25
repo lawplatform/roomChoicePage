@@ -85,9 +85,9 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 
 			</div>
 			<div>
-				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-5">
+				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-5 ">
 					{filteredData.map((item: any) => (
-						<Gallery_Button name={item.name} img={imagePath + item.name + '.png'} show={showModal} />
+						<Gallery_Button name={item.name} img={imagePath + 'conssul-' + item.name + '.png'} show={showModal} />
 					))}
 				</div>
 
@@ -97,13 +97,13 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 				<form method="dialog" className="modal-box">
 					<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 					<h3 className="font-bold text-lg">{room.name}</h3>
-					<img src={imagePath + room.name + '.png'} className="rounded-xl" />
-					<a className="btn btn-neutral mt-3" target="_blank" href={room.link}>
+					<img src={imagePath + 'conssul-' + room.name + '.png'} className="rounded-xl" />
+					<a className="btn btn-neutral mt-3" target="_blank" href={'https://youstory.io/conssul-' + room.name}>
 						<img src="/icon/see_white.svg" className="w-5" />
 						구경하기
 					</a>
 					<div className="flex flex-row justify-between">
-						<p className="py-4">{room.desc}</p>
+						<p> 다양한 공간들을 둘러보세요</p>
 						<div className="relative ">
 							<button className="btn btn-neutral " >
 								선택

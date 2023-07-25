@@ -47,10 +47,10 @@ function App() {
 	return (
 
 		<>
-			<div className=" h-full sm:h-[1100px]  object-center sm:items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  ">
+			<div className=" h-full sm:h-[1100px]  object-center sm:items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  bg-cover ">
 				<div className="mx-auto w-full max-w-3xl h-full bg-white rounded-lg  flex flex-col justify-center items-center   sm:pt-10">
 					<progress className="progress progress-info  mt-3 w-80 mx-10 items-center justify-center" value={25 * currentIndex} max="100"></progress>
-					<div className='flex flex-col mt-3 px-10 h-[500px]'>
+					<div className='flex flex-col mt-3 px-10 h-[900px] overflow-y-scroll'>
 
 						{slide[currentIndex]}
 						<div className='mt-1 fixed left-0 bottom-0
