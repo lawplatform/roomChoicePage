@@ -8,12 +8,26 @@ import anime from 'animejs'
 import Btn_start from './components/Btn_start'
 import Btn_Middle from './components/Btn_middle'
 import Btn_prev from './components/Btn_prev'
-import axios from 'axios';
+import addRoom from './api/Room'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import postToAirtable from './api/Room'
 
 
 function App() {
 	const [currentIndex, setActiveIndex] = useState(0);
+	const [record, setRecord] = useState(
+		{
+			fields: {
+				Customer: '고양시',
+				Date: '2023-07-23',
+				Status: '의뢰',
+				Metaverse: 'ustory',
+				Room: 'office',
+				Link: 'youstory.room',
+			},
+		},
+	);
+
 	const next = () => {
 		setActiveIndex((prevIndex) => (prevIndex + 1) % slide.length);
 		animateProgressBar((currentIndex + 1) % slide.length);
@@ -46,25 +60,7 @@ function App() {
 			duration: 400,
 		});
 	};
-	const API_KEY = import.meta.env.VITE_TOKEN;
-	//const API_KEY = 'pat22tMTRwlrvbaGH.870d356d7f903bb1406ca6688f3dca1876ac140e1aa08bae7bf251dcdd9313d9'; // Replace with your actual Airtable API key
-	const BASE_URL = 'https://api.airtable.com/v0/appfFDkFAS5nc32JC/Projects';
 
-	const postToAirtable = async (data) => {
-		const config = {
-			headers: {
-				Authorization: `Bearer ${API_KEY}`,
-				'Content-Type': 'application/json',
-			},
-		};
-
-		try {
-			const response = await axios.post(BASE_URL, data, config);
-			return response.data;
-		} catch (error) {
-			throw new Error('Error posting data to Airtable.');
-		}
-	};
 
 	const sampleData = {
 		records: [
@@ -82,27 +78,20 @@ function App() {
 		],
 	};
 
+
 	const mutation = useMutation((data) => postToAirtable(data), {
-		// onSuccess event listener
 		onSuccess: (data) => {
-			// Handle logic when the mutation is successful
 			console.log('Mutation successful:', data);
-			// You can perform additional actions here
 		},
-		// onError event listener
 		onError: (error) => {
-			// Handle logic when the mutation encounters an error
 			console.error('Mutation error:', error);
-			// You can perform additional error-handling actions here
 		},
 	});
-
-
-
+	const addRoom = async (data: any) => {
+		mutation.mutate(data);
+	}
 	const sendData = () => {
-		mutation.mutate(sampleData);
-
-
+		addRoom(record);
 	}
 	return (
 

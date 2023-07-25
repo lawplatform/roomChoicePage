@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useMutation } from '@tanstack/react-query'
 const API_KEY = import.meta.env.VITE_TOKEN;
 const BASE_URL = 'https://api.airtable.com/v0/appfFDkFAS5nc32JC/Projects';
 
@@ -33,17 +35,6 @@ const sampleData = {
 	],
 };
 
-const mutation = useMutation((data) => postToAirtable(data), {
-	// onSuccess event listener
-	onSuccess: (data) => {
-		// Handle logic when the mutation is successful
-		console.log('Mutation successful:', data);
-		// You can perform additional actions here
-	},
-	// onError event listener
-	onError: (error) => {
-		// Handle logic when the mutation encounters an error
-		console.error('Mutation error:', error);
-		// You can perform additional error-handling actions here
-	},
-});
+
+
+export default postToAirtable;
