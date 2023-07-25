@@ -69,7 +69,10 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 		window.my_modal.showModal()
 
 	}
+	const cilckHandler = () => {
+		console.log("am I clicked?");
 
+	}
 	return (
 		<>
 			<h1 className='text-center leading-10 text-3xl font-bold'>공간 선택 </h1>
@@ -105,7 +108,7 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 					<div className="flex flex-row justify-between">
 						<p> 다양한 공간들을 둘러보세요</p>
 						<div className="relative ">
-							<button className="btn btn-neutral " >
+							<button className="btn btn-neutral" >
 								선택
 							</button>
 						</div>

@@ -27,7 +27,18 @@ function App() {
 			},
 		},
 	);
+	const ChangeStatus = (fieldName, value) => {
+		setRecords((prevRecords) => {
+			// Create a copy of the previous records array
+			const updatedRecords = [...prevRecords];
 
+			// Update the specified field of the current record (assuming it's the first record in this case)
+			updatedRecords.fields[fieldName] = value;
+
+			return updatedRecords;
+		});
+		console.log(record);
+	};
 	const next = () => {
 		setActiveIndex((prevIndex) => (prevIndex + 1) % slide.length);
 		animateProgressBar((currentIndex + 1) % slide.length);
@@ -42,7 +53,7 @@ function App() {
 		< Intro next={next} />,
 		<Warn next={next} prev={prev} />,
 		<ChoiceMetaverse next={next} prev={prev} />,
-		<ChoiceRoom next={next} prev={prev} platform='ustory' />];
+		<ChoiceRoom next={next} prev={prev} platform='ustory' change={ChangeStatus} />];
 
 	const slideBtn = [
 		<Btn_start next={next} />,
@@ -93,6 +104,7 @@ function App() {
 	const sendData = () => {
 		addRoom(record);
 	}
+
 	return (
 
 		<>
