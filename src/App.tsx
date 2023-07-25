@@ -78,16 +78,7 @@ function App() {
 					Link: 'youstory.room',
 				},
 			},
-			{
-				fields: {
-					Customer: '최대한',
-					Date: '2023-07-23',
-					Status: '의뢰',
-					Metaverse: 'ustory',
-					Room: 'office',
-					Link: 'youstory.room',
-				},
-			},
+
 		],
 	};
 
