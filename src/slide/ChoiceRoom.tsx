@@ -47,8 +47,6 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 		return filteredData;
 	};
 
-
-
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
@@ -59,8 +57,6 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 		return <div>Item not found!</div>;
 	}
 	const filteredData = applyFilters();
-
-
 
 	const showModal = (name: string) => {
 
@@ -89,8 +85,8 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 			</div>
 			<div className=" h-[650px] overflow-y-scroll">
 				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-5 ">
-					{filteredData.map((item: any) => (
-						<Gallery_Button name={item.name} img={imagePath + 'conssul-' + item.name + '.png'} show={showModal} />
+					{filteredData.map((item: any, index: number) => (
+						<Gallery_Button name={item.name} key={index} img={imagePath + 'conssul-' + item.name + '.png'} show={showModal} />
 					))}
 				</div>
 
