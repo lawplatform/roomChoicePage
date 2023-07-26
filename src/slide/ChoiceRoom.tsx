@@ -8,9 +8,12 @@ interface ChoiceRoomProp {
 	platform: string;
 	next: () => void;
 	prev: () => void;
+	change: (Name: string, Link: string) => void;
+	roomName: any;
 }
 
-const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
+const ChoiceRoom = ({ platform, next, prev, change, roomName }: ChoiceRoomProp) => {
+
 	const metaverse = "ustory"
 	const imagePath = "/room/" + metaverse + "/"
 	const [filterOptions, setFilterOptions] = useState(["sns", "home", "talk", "edu"]);
@@ -66,7 +69,9 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 
 	}
 	const cilckHandler = () => {
-		console.log("am I clicked?");
+		let path = 'https://youstory.io/conssul-' + room.name;
+		change(room.name, path);
+		next();
 
 	}
 	return (
@@ -104,7 +109,7 @@ const ChoiceRoom = ({ platform, next, prev }: ChoiceRoomProp) => {
 					<div className="flex flex-row justify-between">
 						<p> 다양한 공간들을 둘러보세요</p>
 						<div className="relative ">
-							<button className="btn btn-neutral" >
+							<button className="btn btn-neutral" onClick={cilckHandler} >
 								선택
 							</button>
 						</div>
