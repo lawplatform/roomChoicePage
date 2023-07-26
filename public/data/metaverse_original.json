@@ -1,0 +1,23 @@
+[
+	{
+		"name":"zep",
+		"desc":"아기자기한 2d 형식의 메타버스 플랫폼",
+		"link":"https://zep.us/play/ykXYoA",
+		"room":"방",
+		"room_desc":"작은방"
+	},
+		{
+		"name":"zepeto",
+		"desc":"이쁜 아바타들과 상호작용이 가능한 메타버스플랫폼 ",
+		"link":"link url",
+		"room":"사무실",
+		"room_desc":"기본 사무실"
+	},
+		{
+		"name":"ustory",
+		"desc":"다양한 기능을 갖춘 메타버스 플랫폼 ",
+		"link":"https://youstory.io/rsas",	
+		"room":"갤러리",
+		"room_desc":"기본 갤러리"
+	}
+]
