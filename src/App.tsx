@@ -35,7 +35,7 @@ function App() {
 		}));
 	};
 
-	const setName = (Name) => {
+	const changeName = (Name: string) => {
 		setRecord((prevRecord) => ({
 			...prevRecord,
 			Customer: Name,
@@ -52,8 +52,9 @@ function App() {
 		animateProgressBar((currentIndex - 1 + slide.length) % slide.length);
 	};
 
+
 	const slide = [
-		< Intro next={next} />,
+		< Intro next={next} name={record.Customer} changeName={changeName} />,
 		<Warn next={next} prev={prev} />,
 		<ChoiceMetaverse next={next} prev={prev} />,
 		<ChoiceRoom next={next} prev={prev} platform='ustory' change={updateRoom} />,
@@ -104,6 +105,7 @@ function App() {
 		};
 
 		addRoom(Data);
+		next();
 	}
 	const slideBtn = [
 		<Btn_start next={next} />,

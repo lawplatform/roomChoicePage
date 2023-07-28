@@ -13,7 +13,10 @@ const LastCheck = (record: any) => {
 			Link: 'youstory.room',
 		},
 	);
+	useEffect(() => {
+		console.log(room);
 
+	}, [])
 	const metaverse = "ustory";
 	let imgPath = "/room/" + metaverse + "/conssul-" + room.Room + ".png";
 	useEffect(() => {
