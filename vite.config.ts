@@ -8,5 +8,8 @@ export default defineConfig({
 		watch: {
 			usePolling: true,
 		},
-	}
+	},
+	define: {
+		__APP_ENV__: process.env.VITE_VERCEL_ENV,
+	},
 })
