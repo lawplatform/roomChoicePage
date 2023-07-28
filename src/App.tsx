@@ -102,7 +102,6 @@ function App() {
 				},]
 
 		};
-		console.log(Data);
 
 		addRoom(Data);
 	}
