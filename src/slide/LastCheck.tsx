@@ -7,7 +7,7 @@ import { observer } from "@legendapp/state/react";
 
 interface LastCheckProps {
 }
-const LastCheck = observer(function component(record: any) => {
+const LastCheck = observer(function component(record: any) {
 	const date = getCurrentDate();
 	const [room, setRoom] = useState(
 		{
@@ -18,7 +18,7 @@ const LastCheck = observer(function component(record: any) => {
 		},
 	);
 	useEffect(() => {
-		console.log(room);
+		console.log(State);
 
 	}, [])
 	const metaverse = "ustory";
@@ -57,6 +57,6 @@ const LastCheck = observer(function component(record: any) => {
 
 		</>
 	)
-}
+});
 
 export default LastCheck;

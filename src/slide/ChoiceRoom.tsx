@@ -70,7 +70,12 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 
 	const showModal = (name: string) => {
 		let choiceItem = filteredData.find(item => item.name === name);
-		setRoom(choiceItem);
+		//setRoom(choiceItem);
+		State.Room.set(choiceItem.name);
+		State.Link.set(choiceItem.link);
+		State.imgName.set(choiceItem.imgName);
+		console.log(room);
+
 		window.my_modal.showModal()
 
 	}
@@ -78,7 +83,12 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 		let path = 'https://youstory.io/conssul-' + room.name;
 		State.Room.set(room.name);
 		State.Link.set(room.link);
-		next();
+		console.log(room.imgName);
+
+		State.imgName.set(room.imgName);
+		console.log(State.imgName.get());
+
+		//next();
 
 	}
 	return (
@@ -108,8 +118,8 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 				<form method="dialog" className="modal-box">
 					<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 					<h3 className="font-bold text-lg">{room.name}</h3>
-					<img src={imagePath + 'conssul-' + room.name + '.png'} className="rounded-xl" />
-					<a className="btn btn-neutral mt-3" target="_blank" href={'https://youstory.io/conssul-' + room.name}>
+					<img src={imagePath + State.imgName.get() + '.png'} className="rounded-xl" />
+					<a className="btn btn-neutral mt-3" target="_blank" href={State.Link.get()}>
 						<img src="/icon/see_white.svg" className="w-5" />
 						구경하기
 					</a>
@@ -125,5 +135,5 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 			</dialog >
 		</>
 	)
-}
+});
 export default ChoiceRoom;
