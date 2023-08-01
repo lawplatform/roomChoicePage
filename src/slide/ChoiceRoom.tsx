@@ -3,22 +3,29 @@ import Searchbar from "../components/SearchBar";
 import Gallery_Button from "../components/Gallery_Button";
 import Icon_label from "../components/Icon_label";
 import { useQuery } from "@tanstack/react-query";
-
+import { observer } from "@legendapp/state/react";
+import { State } from "../store/State"
 interface ChoiceRoomProp {
 	platform: string;
 	next: () => void;
 	prev: () => void;
 	change: (Name: string, Link: string) => void;
-	roomName: any;
 }
 
-const ChoiceRoom = ({ platform, next, prev, change, roomName }: ChoiceRoomProp) => {
+const ChoiceRoom = observer(function component({ platform, next, prev, change }: ChoiceRoomProp) {
 
 	const metaverse = "ustory"
 	const imagePath = "/room/" + metaverse + "/"
 	const [filterOptions, setFilterOptions] = useState(["sns", "home", "talk", "edu"]);
 	const [search, setSearch] = useState("");
-	const [room, setRoom] = useState({ name: "", desc: "", link: "" });
+	const [room, setRoom] = useState({
+		"name": "",
+		"link": "",
+		"rank": [],
+		"imgName": "",
+		"category": []
+
+	});
 	const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { value, checked } = event.target;
 		if (checked) {
@@ -31,7 +38,7 @@ const ChoiceRoom = ({ platform, next, prev, change, roomName }: ChoiceRoomProp) 
 	};
 
 	const { data, isLoading, error } = useQuery(['jsonData', { filter: { metaverse } }], () =>
-		fetch('/room/ustory.json')
+		fetch('/room/ustory-all.json')
 			.then((response) => response.json())
 	);
 	const applyFilters = () => {
@@ -62,7 +69,6 @@ const ChoiceRoom = ({ platform, next, prev, change, roomName }: ChoiceRoomProp) 
 	const filteredData = applyFilters();
 
 	const showModal = (name: string) => {
-
 		let choiceItem = filteredData.find(item => item.name === name);
 		setRoom(choiceItem);
 		window.my_modal.showModal()
@@ -70,7 +76,8 @@ const ChoiceRoom = ({ platform, next, prev, change, roomName }: ChoiceRoomProp) 
 	}
 	const cilckHandler = () => {
 		let path = 'https://youstory.io/conssul-' + room.name;
-		change(room.name, path);
+		State.Room.set(room.name);
+		State.Link.set(room.link);
 		next();
 
 	}
@@ -91,7 +98,7 @@ const ChoiceRoom = ({ platform, next, prev, change, roomName }: ChoiceRoomProp) 
 			<div className=" h-[650px] overflow-y-scroll">
 				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-5 ">
 					{filteredData.map((item: any, index: number) => (
-						<Gallery_Button name={item.name} key={index} img={imagePath + 'conssul-' + item.name + '.png'} show={showModal} />
+						<Gallery_Button name={item.name} key={index} img={imagePath + item.imgName + '.png'} show={showModal} />
 					))}
 				</div>
 

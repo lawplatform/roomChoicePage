@@ -1,9 +1,13 @@
 import { ObservablePrimitiveChildFns, observe } from "@legendapp/state";
 import getCurrentDate from '../util/getCurrentDate';
 import { useContext, useEffect, useState } from "react";
+import { State } from "../store/State"
+import { observer } from "@legendapp/state/react";
+
+
 interface LastCheckProps {
 }
-const LastCheck = (record: any) => {
+const LastCheck = observer(function component(record: any) => {
 	const date = getCurrentDate();
 	const [room, setRoom] = useState(
 		{
@@ -18,12 +22,8 @@ const LastCheck = (record: any) => {
 
 	}, [])
 	const metaverse = "ustory";
-	let imgPath = "/room/" + metaverse + "/conssul-" + room.Room + ".png";
-	useEffect(() => {
-		setRoom(record.record);
-		console.log(room);
-		imgPath = "/room/" + metaverse + "/conssul-" + room.Room + ".png";
-	}, [record])
+	let imgPath = "/room/" + metaverse + State.imgName.get() + ".png";
+
 	const cilckHandler = () => {
 	}
 
@@ -49,7 +49,7 @@ const LastCheck = (record: any) => {
 						</div>
 					</div>
 
-					<div className="text-lg font-bold text-center mb-2">{room.Room}</div>
+					<div className="text-lg font-bold text-center mb-2">{State.Room.get()}</div>
 				</div>
 
 				<div className="text-gray-700 mb-2">선택한 공간을 기반으로 방이 제작됩니다</div>
