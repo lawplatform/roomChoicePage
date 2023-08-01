@@ -4,10 +4,13 @@ import { useContext, useEffect, useState } from "react";
 import { State } from "../store/State"
 import { observer } from "@legendapp/state/react";
 
-
 interface LastCheckProps {
 }
-const LastCheck = observer(function component(record: any) {
+
+
+
+
+const LastCheck = observer(function component() {
 	const date = getCurrentDate();
 	const [room, setRoom] = useState(
 		{
@@ -17,12 +20,12 @@ const LastCheck = observer(function component(record: any) {
 			Link: 'youstory.room',
 		},
 	);
+	const imagePath = "/room/" + "ustory" + "/";
 	useEffect(() => {
-		console.log(State);
+		//imgPath = "/room/" + "ustory/" + State.imgName.get() + ".png";
+		console.log(State.Room.get());
 
-	}, [])
-	const metaverse = "ustory";
-	let imgPath = "/room/" + metaverse + State.imgName.get() + ".png";
+	}, [State])
 
 	const cilckHandler = () => {
 	}
@@ -45,7 +48,7 @@ const LastCheck = observer(function component(record: any) {
 					<div className="avatar flex justify-center">
 						<div className="w-24 rounded">
 
-							<img src={imgPath} />
+							<img src={imagePath + State.imgName.get() + '.png'} />
 						</div>
 					</div>
 

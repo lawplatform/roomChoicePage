@@ -80,15 +80,10 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 
 	}
 	const cilckHandler = () => {
-		let path = 'https://youstory.io/conssul-' + room.name;
 		State.Room.set(room.name);
 		State.Link.set(room.link);
-		console.log(room.imgName);
-
 		State.imgName.set(room.imgName);
-		console.log(State.imgName.get());
-
-		//next();
+		next();
 
 	}
 	return (
