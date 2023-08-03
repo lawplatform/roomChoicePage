@@ -74,7 +74,6 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 		State.Room.set(choiceItem.name);
 		State.Link.set(choiceItem.link);
 		State.imgName.set(choiceItem.imgName);
-		console.log(room);
 
 		window.my_modal.showModal()
 

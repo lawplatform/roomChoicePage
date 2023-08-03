@@ -13,7 +13,6 @@ const Searchbar = ({ search, setSearch }: SeachbarProps) => {
 	}, []);
 
 	const handleChange: ChangeEventHandler<HTMLInputElement> = (event: ChangeEvent<HTMLInputElement>) => {
-		console.log(search);
 		setSearch(event.target.value);
 	};
 

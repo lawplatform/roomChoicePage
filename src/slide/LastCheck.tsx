@@ -5,29 +5,19 @@ import { State } from "../store/State"
 import { observer } from "@legendapp/state/react";
 
 interface LastCheckProps {
+	next: () => void;
 }
 
-
-
-
-const LastCheck = observer(function component() {
+const LastCheck = observer(function component({ next }: LastCheckProps) {
+	State.Room.onChange(({ value }) => console.log('room is..', value))
 	const date = getCurrentDate();
-	const [room, setRoom] = useState(
-		{
-			Customer: '고양시',
-			Metaverse: 'ustory',
-			Room: 'office',
-			Link: 'youstory.room',
-		},
-	);
-	const imagePath = "/room/" + "ustory" + "/";
 	useEffect(() => {
-		//imgPath = "/room/" + "ustory/" + State.imgName.get() + ".png";
-		console.log(State.Room.get());
 
-	}, [State])
+	}, [])
+	const metaverse = "ustory";
 
 	const cilckHandler = () => {
+
 	}
 
 
@@ -48,7 +38,7 @@ const LastCheck = observer(function component() {
 					<div className="avatar flex justify-center">
 						<div className="w-24 rounded">
 
-							<img src={imagePath + State.imgName.get() + '.png'} />
+							<img src={"/room/" + metaverse + "/conssul-" + State.imgName.get() + ".png"} />
 						</div>
 					</div>
 

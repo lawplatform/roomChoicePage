@@ -15,9 +15,15 @@ import Empty from './slide/Empty'
 import LastCheck from './slide/LastCheck'
 import Thank from './slide/Thank'
 import getCurrentDate from './util/getCurrentDate'
-
+import { State } from './store/State'
+import { observe } from '@legendapp/state'
 
 function App() {
+	observe(() => {
+		console.log("room changed...?");
+
+		console.log(State.Room.get())
+	})
 	const [currentIndex, setActiveIndex] = useState(0);
 	const [record, setRecord] = useState(
 		{
@@ -42,6 +48,7 @@ function App() {
 		}));
 	};
 
+
 	const next = () => {
 		setActiveIndex((prevIndex) => (prevIndex + 1) % slide.length);
 		animateProgressBar((currentIndex + 1) % slide.length);
@@ -55,10 +62,8 @@ function App() {
 
 	const slide = [
 		< Intro next={next} name={record.Customer} changeName={changeName} />,
-		<Warn next={next} prev={prev} />,
-		<ChoiceMetaverse next={next} prev={prev} />,
 		<ChoiceRoom next={next} prev={prev} platform='ustory' change={updateRoom} />,
-		<LastCheck record={record} />,
+		<LastCheck next={next} />,
 		<Thank />
 	];
 
@@ -109,8 +114,6 @@ function App() {
 	}
 	const slideBtn = [
 		<Btn_start next={next} />,
-		<Btn_Middle next={next} prev={prev} />,
-		<Btn_Middle next={next} prev={prev} />,
 		<Btn_prev prev={prev} />,
 		<Btn_Confirm next={sendData} prev={prev} />,
 		<Empty></Empty>

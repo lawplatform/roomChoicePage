@@ -7,7 +7,7 @@ export const State = observable({
 	Metaverse: 'ustory',
 	Room: 'office',
 	Link: 'youstory.room',
-	imgName: "temp.png"
+	imgName: "temp"
 
 
 })
