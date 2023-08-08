@@ -89,17 +89,16 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 				<Searchbar search={search} setSearch={setSearch} />
 
 			</div>
-			<div className=" ">
-				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-5 ">
+			<div className="  flex items-center justify-center">
+				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-1 ">
 					{filteredData.map((item: any, index: number) => (
-						<div className="w-40 h-30 sm:h-50 mx-2 ">
+						<div className="w-40 h-30 sm:h-50">
 							<Gallery_Button name={item.name} key={index} img={imagePath + item.imgName + '.png'} show={showModal} />
 						</div>
 					))}
 				</div>
+			</div>
 
-			</div >
-			{/* You can open the modal using ID.showModal() method */}
 			< dialog id="my_modal" className="modal" >
 				<form method="dialog" className="modal-box">
 					<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 ">✕</button>
