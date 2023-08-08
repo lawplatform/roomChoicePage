@@ -38,7 +38,7 @@ const LastCheck = observer(function component({ next }: LastCheckProps) {
 					<div className="avatar flex justify-center">
 						<div className="w-24 rounded">
 
-							<img src={"/room/" + metaverse + "/conssul-" + State.imgName.get() + ".png"} />
+							<img src={"/room/" + metaverse + "/" + State.imgName.get() + ".png"} />
 						</div>
 					</div>
 

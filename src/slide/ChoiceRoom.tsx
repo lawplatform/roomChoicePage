@@ -79,9 +79,6 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 
 	}
 	const cilckHandler = () => {
-		State.Room.set(room.name);
-		State.Link.set(room.link);
-		State.imgName.set(room.imgName);
 		next();
 
 	}
