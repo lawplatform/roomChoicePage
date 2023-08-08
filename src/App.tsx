@@ -20,9 +20,8 @@ import { observe } from '@legendapp/state'
 
 function App() {
 	observe(() => {
-		console.log("room changed...?");
+		console.log(State.Metaverse.get());
 
-		console.log(State.Room.get())
 	})
 	const [currentIndex, setActiveIndex] = useState(0);
 	const [record, setRecord] = useState(
@@ -62,6 +61,7 @@ function App() {
 
 	const slide = [
 		< Intro next={next} name={record.Customer} changeName={changeName} />,
+		<ChoiceMetaverse next={next} prev={prev} />,
 		<ChoiceRoom next={next} prev={prev} platform='ustory' change={updateRoom} />,
 		<LastCheck next={next} />,
 		<Thank />
@@ -92,7 +92,6 @@ function App() {
 
 	const sendData = () => {
 		let date = getCurrentDate();
-		console.log("data loading");
 
 		let Data = {
 			records: [
@@ -101,9 +100,9 @@ function App() {
 						Customer: record.Customer,
 						Date: date,
 						Status: '의뢰',
-						Metaverse: 'ustory',
-						Room: record.Room,
-						Link: record.Link,
+						Metaverse: State.Metaverse.get(),
+						Room: State.Room.get(),
+						Link: State.Link.get(),
 					},
 				},]
 
@@ -114,6 +113,7 @@ function App() {
 	}
 	const slideBtn = [
 		<Btn_start next={next} />,
+		<Btn_Middle next={next} prev={prev} />,
 		<Btn_prev prev={prev} />,
 		<Btn_Confirm next={sendData} prev={prev} />,
 		<Empty></Empty>
@@ -123,12 +123,12 @@ function App() {
 
 		<>
 			<div className=" h-full sm:h-[1100px]  object-center sm:items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  bg-cover ">
-				<div className="mx-auto w-full max-w-3xl h-full bg-white rounded-lg  flex flex-col justify-center items-center   sm:pt-10">
+				<div className="mx-auto w-full max-w-3xl h-full bg-white sm:rounded-lg  flex flex-col justify-center items-center   sm:pt-10">
 					<progress className="progress progress-info  mt-3 w-80 mx-10 items-center justify-center" value={25 * currentIndex} max="100"></progress>
-					<div className='flex flex-col mt-3 px-5 '>
+					<div className='flex flex-col mt-3 px-5 h-[820px] sm:h-[850px] overflow-y-scroll'>
 						{slide[currentIndex]}
 						<div className='mt-1 fixed left-0 bottom-0
-            flex justify-center items-center w-full mb-3'>
+            flex justify-center items-center w-full mb-3 '>
 							{slideBtn[currentIndex]}
 						</div>
 					</div>

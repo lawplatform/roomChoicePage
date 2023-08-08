@@ -34,6 +34,8 @@ const ChoiceMetaverse = ({ next, prev }: WarnProp) => {
 				<h1 className='text-center leading-10 text-3xl font-bold'>메타버스 선택 </h1>
 				<div className="flex flex-row sm:flex-row w-full mx-auto items-center">
 					<Card_Radio name="ustory" meta={metaverse} setMeta={SetMetaverse}></Card_Radio>
+					<Card_Radio name="zepeto" meta={metaverse} setMeta={SetMetaverse}></Card_Radio>
+					<Card_Radio name="zep" meta={metaverse} setMeta={SetMetaverse}></Card_Radio>
 				</div>
 				<p className="py-6 mx-auto text-center break-words">
 					{data.desc}</p>

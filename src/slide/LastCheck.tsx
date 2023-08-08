@@ -9,12 +9,11 @@ interface LastCheckProps {
 }
 
 const LastCheck = observer(function component({ next }: LastCheckProps) {
-	State.Room.onChange(({ value }) => console.log('room is..', value))
 	const date = getCurrentDate();
 	useEffect(() => {
 
 	}, [])
-	const metaverse = "ustory";
+	const metaverse = State.Metaverse.get();
 
 	const cilckHandler = () => {
 
@@ -44,7 +43,6 @@ const LastCheck = observer(function component({ next }: LastCheckProps) {
 
 					<div className="text-lg font-bold text-center mb-2">{State.Room.get()}</div>
 				</div>
-
 				<div className="text-gray-700 mb-2">선택한 공간을 기반으로 방이 제작됩니다</div>
 			</div>
 

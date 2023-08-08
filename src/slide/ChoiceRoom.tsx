@@ -14,18 +14,11 @@ interface ChoiceRoomProp {
 
 const ChoiceRoom = observer(function component({ platform, next, prev, change }: ChoiceRoomProp) {
 
-	const metaverse = "ustory"
+	const metaverse = State.Metaverse.get();
 	const imagePath = "/room/" + metaverse + "/"
 	const [filterOptions, setFilterOptions] = useState(["sns", "home", "talk", "edu"]);
 	const [search, setSearch] = useState("");
-	const [room, setRoom] = useState({
-		"name": "",
-		"link": "",
-		"rank": [],
-		"imgName": "",
-		"category": []
 
-	});
 	const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { value, checked } = event.target;
 		if (checked) {
@@ -38,9 +31,10 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 	};
 
 	const { data, isLoading, error } = useQuery(['jsonData', { filter: { metaverse } }], () =>
-		fetch('/room/ustory-all.json')
-			.then((response) => response.json())
-	);
+		fetch(`/room/${metaverse}.json`)
+			.then((response) => response.json()));
+
+
 	const applyFilters = () => {
 
 		if (!data || !Array.isArray(data)) {
@@ -70,7 +64,6 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 
 	const showModal = (name: string) => {
 		let choiceItem = filteredData.find(item => item.name === name);
-		//setRoom(choiceItem);
 		State.Room.set(choiceItem.name);
 		State.Link.set(choiceItem.link);
 		State.imgName.set(choiceItem.imgName);
@@ -96,10 +89,12 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 				<Searchbar search={search} setSearch={setSearch} />
 
 			</div>
-			<div className=" h-[650px] overflow-y-scroll">
+			<div className=" ">
 				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-5 ">
 					{filteredData.map((item: any, index: number) => (
-						<Gallery_Button name={item.name} key={index} img={imagePath + item.imgName + '.png'} show={showModal} />
+						<div className="w-40 h-30 sm:h-50 ">
+							<Gallery_Button name={item.name} key={index} img={imagePath + item.imgName + '.png'} show={showModal} />
+						</div>
 					))}
 				</div>
 
@@ -107,19 +102,24 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 			{/* You can open the modal using ID.showModal() method */}
 			< dialog id="my_modal" className="modal" >
 				<form method="dialog" className="modal-box">
-					<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-					<h3 className="font-bold text-lg">{room.name}</h3>
+					<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 ">✕</button>
+					<h3 className="font-bold text-lg">{State.Room.get()}</h3>
 					<img src={imagePath + State.imgName.get() + '.png'} className="rounded-xl" />
-					<a className="btn btn-neutral mt-3" target="_blank" href={State.Link.get()}>
-						<img src="/icon/see_white.svg" className="w-5" />
-						구경하기
-					</a>
+					{State.Link.get() !== "null" ? (
+						<a className="btn btn-neutral mt-3" target="_blank" href={State.Link.get()}>
+							<img src="/icon/see_white.svg" className="w-5" />
+							구경하기
+						</a>
+					) : (<p>전문가와 상담하여 멋진 공간을 만들어보세요</p>)}
 					<div className="flex flex-row justify-between">
-						<p> 다양한 공간들을 둘러보세요</p>
-						<div className="relative ">
-							<button className="btn btn-neutral" onClick={cilckHandler} >
-								선택
-							</button>
+						<div>
+							{State.Link.get() !== "null" ?
+								<p> 다양한 공간들을 둘러보세요</p> : <p></p>}
+							<div className="relative ">
+								<button className="btn btn-neutral" onClick={cilckHandler} >
+									선택
+								</button>
+							</div>
 						</div>
 					</div>
 				</form>
