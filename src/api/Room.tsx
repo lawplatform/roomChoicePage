@@ -3,22 +3,6 @@ import { useMutation } from '@tanstack/react-query'
 const API_KEY = import.meta.env.VITE_TOKEN;
 const BASE_URL = 'https://api.airtable.com/v0/appfFDkFAS5nc32JC/Projects'
 
-const sampleData = {
-	records: [
-		{
-			fields: {
-				Customer: '최대한',
-				Date: '2023-07-23',
-				Status: '의뢰',
-				Metaverse: 'ustory',
-				Room: 'office',
-				Link: 'youstory.room',
-			},
-		},
-
-	],
-};
-
 const postToAirtable = async (data) => {
 	const config = {
 		headers: {
