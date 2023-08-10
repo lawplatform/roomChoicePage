@@ -1,24 +1,22 @@
 import anime from 'animejs'
 import Card_mini from "../components/Card_mini";
 import { ChangeEvent, useEffect, useState } from 'react';
+import { State } from '../store/State';
 interface IntroProp {
-	next: () => void;
-	changeName: (name: string) => void;
-	name: string;
 }
 
-const Intro = ({ name, next, changeName }: IntroProp) => {
+const Intro = ({ }: IntroProp) => {
+	const [name, SetName] = useState("")
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-		changeName(e.target.value);
-		console.log(name);
-
+		SetName(e.target.value);
+		State.Customer.set(e.target.value);
 
 	}
 
 
 	useEffect(() => {
 		anime({
-			targets: 'card_mini', // Update to 'card_mini' without the dot
+			targets: 'card_mini',
 			opacity: [0, 1],
 			easing: 'easeOutExpo',
 			duration: 800,

@@ -67,7 +67,6 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 		State.Room.set(choiceItem.name);
 		State.Link.set(choiceItem.link);
 		State.imgName.set(choiceItem.imgName);
-
 		window.my_modal.showModal()
 
 	}
@@ -89,8 +88,8 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 				<Searchbar search={search} setSearch={setSearch} />
 
 			</div>
-			<div className="  flex items-center justify-center">
-				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-1 ">
+			<div className="  flex items-center justify-center  overflow-y-scroll">
+				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-1">
 					{filteredData.map((item: any, index: number) => (
 						<div className="w-40 h-30 sm:h-50">
 							<Gallery_Button name={item.name} key={index} img={imagePath + item.imgName + '.png'} show={showModal} />
