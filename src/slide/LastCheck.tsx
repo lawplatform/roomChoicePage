@@ -22,7 +22,6 @@ const LastCheck = observer(function component({ next }: LastCheckProps) {
 
 	return (
 		<>
-			<button onClick={cilckHandler}> 다시 보기 </button>
 			<div className="bg-white border rounded-lg shadow-lg px-16 py-8 w-full  mx-auto mt-8">
 				<h1 className="font-bold text-2xl my-4 text-center text-blue-600">확인하기 </h1>
 				<hr className="mb-2" />
