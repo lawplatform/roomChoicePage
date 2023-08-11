@@ -38,14 +38,12 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 	const applyFilters = () => {
 
 		if (!data || !Array.isArray(data)) {
-			// Handle the case when data is not available or not an array
 			return [];
 		}
 		const filteredData = data.filter((item: any) =>
 			item.category.some((cat: string) => filterOptions.includes(cat))
 			&&
-			(search.trim() === "" ||
-				item.name.toLowerCase().includes(search.toLowerCase()))
+			(search.trim() === "" || item.name.toLowerCase().includes(search.toLowerCase()))
 		);
 
 		return filteredData;
@@ -75,7 +73,7 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 
 	}
 	return (
-		<>
+		<div className="">
 			<h1 className='text-center leading-10 text-3xl font-bold'>공간 선택 </h1>
 			<div className="form-control flex flex-row justify-center">
 				<Icon_label icon="home" name="모임" handleChange={handleCheckboxChange} checked={filterOptions.includes("home")} />
@@ -88,16 +86,17 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 				<Searchbar search={search} setSearch={setSearch} />
 
 			</div>
-			<div className="  flex items-center justify-center  overflow-y-scroll">
-				<div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-5 px-1">
-					{filteredData.map((item: any, index: number) => (
-						<div className="w-40 h-30 sm:h-50">
-							<Gallery_Button name={item.name} key={index} img={imagePath + item.imgName + '.png'} show={showModal} />
-						</div>
-					))}
+			<div className="h-[600px] overflow-y-scroll">
+				<div className="  flex items-center justify-center ">
+					<div className="grid grid-cols-2 md:grid-cols-3 grid-flow-row gap-4 mt-5 px-1">
+						{filteredData.map((item: any, index: number) => (
+							<div className="w-40 h-30 sm:h-50">
+								<Gallery_Button name={item.name} key={index} img={imagePath + item.imgName + '.png'} show={showModal} />
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
-
 			< dialog id="my_modal" className="modal" >
 				<form method="dialog" className="modal-box">
 					<button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 ">✕</button>
@@ -122,7 +121,7 @@ const ChoiceRoom = observer(function component({ platform, next, prev, change }:
 					</div>
 				</form>
 			</dialog >
-		</>
+		</div >
 	)
 });
 export default ChoiceRoom;
